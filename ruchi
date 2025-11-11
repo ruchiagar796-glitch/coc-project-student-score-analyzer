@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+float findAverage(int scores[], int n) {
+    int total = 0;
+    for (int i = 0; i < n; i++) {
+        total += scores[i];
+    }
+    return (float)total / n;
+}
+
+int findHighest(int scores[], int n) {
+    int highest = scores[0];
+    for (int i = 1; i < n; i++) {
+        if (scores[i] > highest) {
+            highest = scores[i];
+        }
+    }
+    return highest;
+}
+
+int findLowest(int scores[], int n) {
+    int lowest = scores[0];
+    for (int i = 1; i < n; i++) {
+        if (scores[i] < lowest) {
+            lowest = scores[i];
+        }
+    }
+    return lowest;
+}
+
+int main() {
+    int n;
+
+    printf("Enter the number of students: ");
+    scanf("%d", &n);
+
+    int scores[n];
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter score of student %d: ", i + 1);
+        scanf("%d", &scores[i]);
+    }
+
+
+    float avg = findAverage(scores, n);
+    int high = findHighest(scores, n);
+    int low = findLowest(scores, n);
+
+    // final report
+    printf("\n------ Class Report ------\n");
+    printf("Class Average: %.2f\n", avg);
+    printf("Highest Score: %d\n", high);
+    printf("Lowest Score : %d\n", low);
+    printf("---------------------------\n");
+
+    return 0;
+}
